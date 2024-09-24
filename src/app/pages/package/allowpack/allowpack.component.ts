@@ -94,7 +94,7 @@ export class AllowpackComponent implements OnInit {
         param['ID'] = temp[i]['id'];
         param['RESELLER'] = temp[i]['bname'];
         param['PACK TYPE'] = temp[i]['otttype'] == 1 ? 'GLTV ONLY' : 'GLTV & OTT';
-        param['VENDOR'] = temp[i]['ott_vendor'] == 1 ? 'M2MIT': 'PLAYBOX';
+        param['VENDOR'] = temp[i]['ott_vendor'] == 1 ? 'M2MIT': temp[i].ott_vendor ==2 ? 'PLAYBOX' :'OTTPLAY';
         param['GLTV PACK NAME'] = temp[i]['packname'];
         param['GLTV TIME UNIT'] = temp[i]['gltvdaytype'] == 2 ? temp[i]['gltvdays'] + " " + "Month" : temp[i]['gltvdays'] + " " + "Days";
         param['OTT PACK NAME'] = temp[i]['ottplan_name'];

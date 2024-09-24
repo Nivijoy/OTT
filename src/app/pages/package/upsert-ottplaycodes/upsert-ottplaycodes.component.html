@@ -1,0 +1,50 @@
+<div  style="background-color: #2a72be"class="modal-header">
+  <span>{{ editdata ? 'Update' :'Add' }} Coupon Code</span>
+  <button class="close" aria-label="Close" (click)="activeModal.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form [formGroup]="form" class="form-horizontal" (ngSubmit)="submit();">
+  <div class="modal-body">
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <label>OTT Platform</label>
+        <select formControlName="ottplatform"
+          [ngClass]="{'form-control':true,'form-control-danger':form.controls.ottplatform.invalid&&submit}">
+          <option value="1">Hotstar</option>
+          <option value="2">Amazon Prime</option>
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <label>Code <span style="color:red;">*</span> </label>
+        <input  type="text" name="couponcode" formControlName="couponcode" placeholder="Coupon Code"
+          [ngClass]="{'form-control' : true,'form-control-danger':form.controls.couponcode.invalid && submit}" />
+        <small *ngIf="form.controls.couponcode.invalid&&submit" class="form-text error">couponcode is
+          required!</small>
+          
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <label>Unit Type</label>
+        <select formControlName="validity_type"
+          [ngClass]="{'form-control':true,'form-control-danger':form.controls.validity_type.invalid&&submit}">
+          <option value="" selected>Select Unit Type</option>
+          <option *ngFor="let item of validityType" [value]="item.id">{{item.label}}</option>
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <label>Unit <span style="color:red;">*</span> </label>
+        <input  type="text" name="vunit" formControlName="vunit" placeholder="Unit"
+          [ngClass]="{'form-control' : true,'form-control-danger':form.controls.vunit.invalid && submit}" />
+        <small *ngIf="form.controls.vunit.invalid&&submit" class="form-text error">Unit is
+          required!</small>
+          
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-md btn-success">{{editdata ? 'Update' : 'Add'}}</button>
+    <button type="button" class="btn btn-md btn-danger " (click)='cancel();'>Back</button>
+  </div>
+</form>

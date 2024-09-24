@@ -157,8 +157,19 @@ export class AutoCompleteNComponent implements ControlValueAccessor, OnInit {
     if (!this.MultiSelect) { this.hidden = true; }
   }
 
+  onLabelClick(event: MouseEvent, item: any) {
+    event.preventDefault();
+    const checkbox = document.getElementById(`multiSelect_${item[this.optId]}`) as HTMLInputElement;
+    if (checkbox) {
+        checkbox.checked = !checkbox.checked;
+        item.status = checkbox.checked;
+        this.onCheck();
+    }
+}
   // Work On Multiselect
   onCheck() {
+    console.log('multiselect');
+    
     let checkedVal = this.items.filter(x => x.status).map(m => m[this.optId]);
     if (checkedVal.length === 0) { checkedVal = null; }
     this.onChange(checkedVal);

@@ -55,6 +55,7 @@
             <option value="">Select Vendor</option>
             <option value="1">M2MIT</option>
             <option value="2">PLAYBOX</option>
+            <option value="3">OTTPLAY</option>
           </select>
         </div>
         <div class="col-sm-3">
@@ -144,7 +145,7 @@
         <td style="border: 1px solid #2543ad;color: #020000;">{{item.packname}}</td>
         <td style="border: 1px solid #2543ad;color: #020000;text-align: center;">{{item.gltvdaytype==2 ? item.gltvdays
           +" "+ "Month": item.gltvdays+" "+"Days" }}</td>
-        <td style="border: 1px solid #2543ad;color: #020000;">{{item.ott_vendor ==1 ? 'M2MIT' : 'PLAYBOX'}}</td>
+        <td style="border: 1px solid #2543ad;color: #020000;">{{item.ott_vendor ==1 ? 'M2MIT' :item.ott_vendor ==2 ? 'PLAYBOX' :'OTTPLAY'}}</td>
         <td style="border: 1px solid #2543ad;color: #020000;">{{item.otttype ==2 ?item.ottplan_name : '--'}}</td>
         <td style="border: 1px solid #2543ad;color: #020000;text-align: center;">{{item.dayormonth==2 ? item.
           days +" "+ "Month": item.

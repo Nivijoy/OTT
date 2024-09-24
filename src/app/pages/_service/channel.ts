@@ -21,7 +21,7 @@ export class channelservices{
   async editchannels(params)
 {
   console.log('edittttt...')
-  const {id}=params.id
+  const {id}=params
   return await this.http.put("/api/channel/editChannel/" +id ,params).toPromise();
 
 }

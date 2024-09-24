@@ -22,7 +22,8 @@ import { AllowpackComponent } from './allowpack/allowpack.component';
 import { BluebackgroundDirective } from './bluebackground.directive';
 import { EditServiceComponent }  from './packedit/packedit.component';
 import { ViewServiceComponent } from './viewpack/viewpack.component';
-
+import { UpsertOttplaycodesComponent } from './upsert-ottplaycodes/upsert-ottplaycodes.component';
+import { ShareModule } from '../../SharedModule/shared.module';
 
 // import {GrdFilterPipe} from './../filter/grd-filterpipe';
 
@@ -40,6 +41,7 @@ import { ViewServiceComponent } from './viewpack/viewpack.component';
     NgxLoadingModule.forRoot({}),
     Ng2SmartTableModule,
     TreeModule,
+    ShareModule
 
     // GrdFilterPipe
   ],
@@ -56,9 +58,10 @@ import { ViewServiceComponent } from './viewpack/viewpack.component';
     AllowpackComponent,
     BluebackgroundDirective,
     EditServiceComponent,
-    ViewServiceComponent
+    ViewServiceComponent,
+    UpsertOttplaycodesComponent,
   ],
-  entryComponents: [AddSuccessComponent, OttcountComponent
+  entryComponents: [AddSuccessComponent, OttcountComponent,UpsertOttplaycodesComponent
   ],
   providers: [PackService, channelservices]
 })

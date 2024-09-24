@@ -10,7 +10,7 @@ export class PackService {
   async listpack(params) {
     return await this.http.get("/pack/list", params).toPromise();
   }
-  async listAllowPack(params){
+  async listAllowPack(params) {
     return await this.http.post("/api/pack/listAllowPack", params).toPromise();
   }
   async addpack(params) {
@@ -31,27 +31,37 @@ export class PackService {
   async updatepackMap(params) {
     return await this.http.post("/api/pack/updatepackMap", params).toPromise();
   }
-  async showOTT(params){
+  async showOTT(params) {
     return await this.http.post("/api/pack/showOTTPlatforms", params).toPromise();
   }
-  async showOTTPlan(params){
+  async showOTTPlan(params) {
     return await this.http.post("/api/pack/showOTTPlan", params).toPromise();
   }
-  async showOTTPlanName(params){
+  async showOTTPlanName(params) {
     return await this.http.post("/api/pack/showOTTPlanName", params).toPromise();
   }
-  async addOTTPlan(params){
+  async addOTTPlan(params) {
     return await this.http.post("/api/pack/addOTTPlan", params).toPromise();
   }
-  async listOTTPlan(params){
+  async listOTTPlan(params) {
     return await this.http.post("/api/pack/listOTTPlan", params).toPromise();
   }
-  async editOTTPlan(params){
+  async editOTTPlan(params) {
     return await this.http.post("/api/pack/editOTTPlan", params).toPromise();
   }
-  async getottplanname(params){
+  async getottplanname(params) {
     return await this.http.post("/api/pack/getottplanname", params).toPromise();
   }
-  
+
+  async addOttPlayCode(body) {
+    return await this.http.post("/api/ottplaycode/addOttPlayCode", body).toPromise();
+  }
+  async listOttPlayCode(params) {
+    return await this.http.get("/api/ottplaycode/listOttPlayCode", { params }).toPromise();
+  }
+  async updateOttPlayCode(body) {
+    return await this.http.put("/api/ottplaycode/updateOttPlayCode/" + body.ccid + "", body).toPromise();
+  }
+
 
 }

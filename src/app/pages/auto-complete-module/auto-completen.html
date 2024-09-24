@@ -3,12 +3,13 @@
 <div *ngIf="MultiSelect" #dropDown [hidden]="hidden" class="dropdown-content">
     <input [(ngModel)]="textbox" [disabled]=disabled (keyup)='onOutput($event);'
     autocomplete="off" class="form-control sticky" type="text">
-    <a (mouseover)="index=i;" [ngStyle]="{'background-color': i==index ? '#20a8d875':'','color':i==index ? '#fff':''}"
+    <a  (mouseover)="index=i;" [ngStyle]="{'background-color': i==index ? '#20a8d875':'','color':i==index ? '#fff':''}"
         *ngFor="let item of itemsFilter;let i=index;">
-        <div class="custom-control custom-checkbox">
+        <div class="custom-control custom-checkbox" >
             <input (change)="onCheck();" type="checkbox" [(ngModel)]="item.status" class="custom-control-input" id="multiSelect_{{item[optId]}}" />
             <label class="custom-control-label" for="multiSelect_{{item[optId]}}">{{item[optValues]}}</label>
         </div>
+       
     </a>
     <a [hidden]='itemsFilter.length!=0'>No Data Found</a>
 </div>

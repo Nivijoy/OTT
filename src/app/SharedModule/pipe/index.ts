@@ -1,0 +1,1 @@
+export * from './getValueFromList/get-value-from-list.pipe';

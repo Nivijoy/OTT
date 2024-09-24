@@ -20,7 +20,7 @@ export class RenewuserComponent implements OnInit {
   public primaryColour = '#dd0031';
   public secondaryColour = '#006ddd';
   public loading = false;
-  ottPlanDetails;ottAmount;ottTaxAmount;ottTotal;
+  ottPlanDetails; ottAmount; ottTaxAmount; ottTotal;
   constructor(
     private alert: ToasterService,
     private router: Router,
@@ -44,23 +44,23 @@ export class RenewuserComponent implements OnInit {
   }
 
   async packsrv($event = '') {
-    console.log('Event------',$event);
-    let manid = this.item['role_type'] == 1 ? this.item['dmid'] : this.item['role_type'] == 2 ? this.item['sdmid'] : this.item['role_type'] == 3 ? this.item['mid'] : '';
-    let resp = await this.psrv.listAllowPack({ like: $event, manid: manid,ott_vendor:2 });
-    this.pack = resp[0]
-    console.log('Pack', this.pack)
+      console.log('Event------', $event);
+      let manid = this.item['role_type'] == 1 ? this.item['dmid'] : this.item['role_type'] == 2 ? this.item['sdmid'] : this.item['role_type'] == 3 ? this.item['mid'] : '';
+      let resp = await this.psrv.listAllowPack({ like: $event, manid: manid });
+      this.pack = resp[0]
+      console.log('Pack', this.pack)
   }
 
   async getOttName() {
-    const [{ottpid,oamt,otaxamt,ottpamt,otttype}] = this.pack.filter(x => x.id == this.RenewSubsForm.value['planid'])
-    console.log('Packid', ottpid,oamt,otaxamt)
-    this.ottAmount=oamt;this.ottTaxAmount=otaxamt;this.ottTotal=Number(oamt) + Number(otaxamt)
-    if(otttype==2){
+    const [{ ottpid, oamt, otaxamt, ottpamt, otttype }] = this.pack.filter(x => x.id == this.RenewSubsForm.value['planid'])
+    console.log('Packid', ottpid, oamt, otaxamt)
+    this.ottAmount = oamt; this.ottTaxAmount = otaxamt; this.ottTotal = Number(oamt) + Number(otaxamt)
+    if (otttype == 2) {
       let result = await this.psrv.getottplanname({ ottplanid: ottpid });
       console.log('Ott name result', result)
       if (result['ottname']) this.ottPlatforms = result['ottname'].split(',')
       this.ottPlanDetails = result;
-    }else  this.ottPlanDetails = '';
+    } else this.ottPlanDetails = '';
   }
 
   async renewSubmit() {
@@ -82,9 +82,9 @@ export class RenewuserComponent implements OnInit {
   }
 
   result_pop(item) {
-    item[0] = {...item[0],viewuser:1}
-    console.log('Itemmmmmmmmmmmm',item);
-    
+    item[0] = { ...item[0], viewuser: 1 }
+    console.log('Itemmmmmmmmmmmm', item);
+
     const activemodal = this.modal.open(AddSuccessComponent, { size: 'lg', container: 'nb-layout' });
     activemodal.componentInstance.modalHeader = 'Result';
     activemodal.componentInstance.item = item;
@@ -94,6 +94,7 @@ export class RenewuserComponent implements OnInit {
 
   createForm() {
     this.RenewSubsForm = this._formBuilder.group({
+      // ott_vendor: ['', Validators.required],
       planid: ["", Validators.required],
       pay_status: ['1', Validators.required],
       // pay_amt: [""],

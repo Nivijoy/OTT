@@ -12,10 +12,10 @@ import { SuccessComponent } from './success/success.component';
 import { TrnstatusComponent } from './trnstatus/trnstatus.component';
 import { OnlinePaymentComponent } from './online-payment/online-payment.component';
 import { PayStatusCheckComponent } from './pay-status-check/pay-status-check.component';
-
+import { ResponsepopComponent } from './responsepop/responsepop.component';
 
 @NgModule({
-  declarations: [InvoiceComponent, DepositComponent, ListdepositComponent, SuccessComponent, TrnstatusComponent, OnlinePaymentComponent, PayStatusCheckComponent],
+  declarations: [InvoiceComponent, DepositComponent, ListdepositComponent, SuccessComponent, TrnstatusComponent, OnlinePaymentComponent, PayStatusCheckComponent,ResponsepopComponent],
   imports: [
     CommonModule,
     ThemeModule,

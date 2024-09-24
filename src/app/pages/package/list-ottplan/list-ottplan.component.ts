@@ -146,7 +146,7 @@ export class ListOTTPlanComponent implements OnInit {
         param['AMOUNT'] = temp[i]['ottamount'];
         param['OTT PROVIDER'] = temp[i]['platforms'];
         param['TAX TYPE'] = temp[i]['taxtype'] == 1 ? 'Exclusive' : 'Inclusive';
-        param['VENDOR'] =temp[i]['ott_vendor'] == 1 ? 'M2MIT': temp[i]['ott_vendor'] == 2 ? 'PlayBox': '--'
+        param['VENDOR'] =temp[i]['ott_vendor'] == 1 ? 'M2MIT': temp[i]['ott_vendor'] == 2 ? 'PlayBox': 'OTTPLAY'
         param['STATUS'] = temp[i]['status'] == 1 ? 'Enable' : 'Disable';
 
         tempdata[i] = param

@@ -66,6 +66,10 @@ export class PagesComponent {
           title: 'Add',
           link: '/pages/package/add-ott'
         },
+        {
+          title: 'OTTPlayCode',
+          link: '/pages/package/ottplay-code'
+        },
       ]
     },
 

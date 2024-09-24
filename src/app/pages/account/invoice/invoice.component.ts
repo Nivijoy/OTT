@@ -9,6 +9,7 @@ const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.
 const EXCEL_EXTENSION = '.xlsx';
 import { DatePipe } from '@angular/common';
 import { PARAMETERS } from '@angular/core/src/util/decorators';
+import { ResponsepopComponent } from '../responsepop/responsepop.component';
 
 
 @Component({
@@ -46,7 +47,11 @@ export class InvoiceComponent implements OnInit {
     this.loading = true;
     let result = await this.accService.listInvoice({
       uid: this.user_data, mobile: this.user_mobile, index: (this.page - 1) * this.limit
-      , limit: this.limit, status: this.status, start_date: this.start_date, end_date: this.end_date, ott_vendor: this.ott_vendor
+      , limit: this.limit, 
+      status: this.status,
+       start_date: this.start_date,
+        end_date: this.end_date,
+         ott_vendor: this.ott_vendor
     })
     if (result) {
       this.loading = false;
@@ -107,7 +112,7 @@ export class InvoiceComponent implements OnInit {
         param['OTTEXPIRY'] = this.datePipe.transform(temp[i]['ottexpirydate'], 'd MMM y hh:mm:ss a');
         param['RESPONSE'] = temp[i]['res_msg'];
         param['STATUS'] = temp[i]['ottstatus'] == 1 ? 'Processing' : temp[i]['ottstatus'] == 2 ? 'Activated' : 'Cancelled';
-        param['VENDOR'] = temp[i]['ott_vendor'] == 1 ? 'M2MIT' : 'PLAYBOX'
+        param['VENDOR'] = temp[i]['ott_vendor'] == 1 ? 'M2MIT' : temp[i]['ott_vendor'] == 2? 'PLAYBOX' : 'OTTPLAY';
         temp[i]['cdate'] = this.datePipe.transform(temp[i]['cdate'], 'd MMM y hh:mm:ss a')
         param['INVOICE DATE'] = temp[i]['cdate'];
         param['PAY STATUS'] = temp[i]['pay_status'] == 1 ? 'Un-paid' : 'Paid'
@@ -121,6 +126,13 @@ export class InvoiceComponent implements OnInit {
       JSXLSX.utils.book_append_sheet(wb, worksheet, 'Sheet1');
       JSXLSX.writeFile(wb, 'Invoice List' + EXCEL_EXTENSION);
     }
+  }
+  response(item) {
+    const activeModal = this.activeModal.open(ResponsepopComponent, { size: 'lg', container: 'nb-layout' });
+    activeModal.componentInstance.modalHeader = 'Response';
+    activeModal.componentInstance.item = item;
+    activeModal.result.then((data) => {
+    });
   }
 
 
@@ -150,7 +162,6 @@ export class InvoiceComponent implements OnInit {
     activeModal.componentInstance.modalHeader = 'Result';
     activeModal.componentInstance.item = item;
     activeModal.result.then((data) => {
-
     });
   }
 

@@ -49,7 +49,9 @@ export class UpdatepackmapComponent implements OnInit {
       ],
       this.vendor = [
         { value: '1', title: 'M2MIT' },
-        { value: '2', title: 'PLAYBOX' }
+        { value: '2', title: 'PLAYBOX' },
+        { value: '3', title: 'OTTPLAY' }
+
       ]
 
 
@@ -165,7 +167,7 @@ export class UpdatepackmapComponent implements OnInit {
         ott_vendor: {
           title: 'Vendor',
           valuePrepareFunction: (ott_vendor: any) => {
-            return (ott_vendor == 1 ? 'M2MIT' : 'PLAYBOX');
+            return (ott_vendor == 1 ? 'M2MIT' : ott_vendor == 1? 'PLAYBOX' : 'OTTPLAY');
           },
           editor: {
             type: 'list',

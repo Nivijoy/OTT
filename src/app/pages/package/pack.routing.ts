@@ -11,6 +11,8 @@ import { UpdatepackmapComponent } from './updatepackmap/updatepackmap.component'
 import { ListOTTPlanComponent } from './list-ottplan/list-ottplan.component';
 import { OTTPlanComponent } from './ott-plan/ott-plan.component';
 import { AllowpackComponent } from './allowpack/allowpack.component';
+import { ListOttplaycodesComponent } from './list-ottplaycodes/list-ottplaycodes.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -22,7 +24,8 @@ const routes: Routes = [{
     { path: 'update-packmap', component:UpdatepackmapComponent},
     {path: 'list-ott',component: ListOTTPlanComponent},
     {path: 'add-ott',component: OTTPlanComponent},
-    {path:'allow-pack', component: AllowpackComponent}
+    {path:'allow-pack', component: AllowpackComponent},
+    {path:'ottplay-code',component:ListOttplaycodesComponent}
 
   ],
 }];
@@ -42,6 +45,7 @@ export const routedComponents = [
   UpdatepackmapComponent,
   ListOTTPlanComponent,
   OTTPlanComponent,
-  AllowpackComponent
+  AllowpackComponent,
+  ListOttplaycodesComponent
   // ViewuserComponent,
 ];

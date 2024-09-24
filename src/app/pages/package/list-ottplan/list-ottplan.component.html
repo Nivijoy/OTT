@@ -62,6 +62,7 @@
             <option value="" selected>Select Vendor</option>
             <option value="1">M2MIT</option>
             <option value="2">PlayBox</option>
+            <option value="3">OTTPLAY</option>
           </select>
         </div>
       </div>
@@ -119,7 +120,7 @@
             (click)="ottcount(item.ottplanid)">{{item.tot}}</a></td> -->
         <td style="text-align:left;">{{ item.platforms}}</td>
         <!-- <td>{{item.status==1 ? 'Enable':'Disable'}}</td> -->
-        <td>{{item.ott_vendor == 1 ? 'M2MIT': item.ott_vendor == 2? 'PlayBox': '--'}}</td>
+        <td>{{item.ott_vendor == 1 ? 'M2MIT': item.ott_vendor == 2? 'PlayBox': 'OTTPLAY'}}</td>
         <td style="text-align: center;"> <a [ngStyle]="{'color' :item.status==1 ? 'green' : 'red' }"
           [ngClass]="{'ion-close-round':item.status!=1? true:false,'ion-checkmark-round': item.status==1 ? true:false  }">
         </a> </td>
